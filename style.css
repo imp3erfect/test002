@@ -1,0 +1,58 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #422b78;
+    flex-direction: column;
+}
+
+/* Container for the textareas and translated text */
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* Style for the input text area */
+textarea {
+    width: 45%;
+    height: 200px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    resize: none;
+}
+
+/* Style for the translated text area (as div) */
+.translated-text {
+    width: 45%;
+    height: 200px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+/* Styling for individual images in translated text */
+.translated-text img {
+    width: 5px;  /* Adjust the size of the images */
+    height: auto;
+    margin-right: 0px;  /* Space between images */
+}
+
+/* Instructions styling */
+.instructions {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #c4b5e8;
+}
