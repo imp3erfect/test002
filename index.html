@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Text Translator</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <div class="instructions">
+        <p>Type your text in the first box. The translated text will appear in the second box, where each character will be replaced by its corresponding image.</p>
+    </div>
+
+    <div class="container">
+        <textarea id="normalText" placeholder="Type here..." oninput="translateText()"></textarea>
+        <div id="translatedText" class="translated-text" placeholder="Translated text will appear here..."></div>
+    </div>
+
+    <script>
+        // Define your custom character-to-image mapping (image filenames)
+        const translationMap = {
+            'a': 'char/a_image.png',
+            'b': 'char/b_image.png',
+            'c': 'char/c_image.png',
+            'd': 'char/d_image.png',
+            'e': 'char/e_image.png',
+            'f': 'char/f_image.png',
+            'g': 'char/g_image.png',
+            'h': 'char/h_image.png',
+            'i': 'char/i_image.png',
+            'j': 'char/j_image.png',
+            'k': 'char/k_image.png',
+            'l': 'char/l_image.png',
+            'm': 'char/m_image.png',
+            'n': 'char/n_image.png',
+            'o': 'char/o_image.png',
+            'p': 'char/p_image.png',
+            'q': 'char/q_image.png',
+            'r': 'char/r_image.png',
+            's': 'char/s_image.png',
+            't': 'char/t_image.png',
+            'u': 'char/u_image.png',
+            'v': 'char/v_image.png',
+            'w': 'char/w_image.png',
+            'x': 'char/x_image.png',
+            'y': 'char/y_image.png',
+            'z': 'char/z_image.png'
+        };
+
+        // Function to translate normal text to custom character images
+        function translateText() {
+            let inputText = document.getElementById('normalText').value;
+            let translatedText = '';
+
+            for (let char of inputText) {
+                // Check if the character exists in the translation map
+                if (translationMap[char.toLowerCase()]) {
+                    let translatedChar = translationMap[char.toLowerCase()];
+                    
+                    // Replace character with corresponding image tag
+                    let imageTag = `<img src="${translatedChar}" alt="${char}" style="width:30px; height:auto;">`;
+                    
+                    // Append the image tag to the translated text
+                    translatedText += imageTag;
+                } else {
+                    // If it's not in the map (e.g., spaces or punctuation), keep the character as is
+                    translatedText += char;
+                }
+            }
+
+            // Set the translated text (which is now HTML with image tags) in the second div
+            document.getElementById('translatedText').innerHTML = translatedText;
+        }
+    </script>
+
+</body>
+</html>
